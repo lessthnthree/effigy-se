@@ -26483,6 +26483,13 @@
 /obj/item/flashlight,
 /turf/open/floor/iron/dark,
 /area/station/engineering/supermatter/room)
+"iDn" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line{
+	dir = 4
+	},
+/obj/effect/landmark/tram/tramstation/rod/west,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/entry)
 "iDB" = (
 /obj/structure/table,
 /obj/effect/turf_decal/trimline/yellow/filled/line{
@@ -48225,6 +48232,13 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
+"qly" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line{
+	dir = 4
+	},
+/obj/effect/landmark/tram/tramstation/rod/east,
+/turf/open/floor/iron,
+/area/station/hallway/secondary/exit/departure_lounge)
 "qmc" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 5
@@ -147546,7 +147560,7 @@ sYk
 iUr
 rWB
 yjN
-yjN
+iDn
 yjN
 rWB
 dkD
@@ -188923,7 +188937,7 @@ uCy
 pFH
 gTN
 eAk
-gTN
+qly
 tgP
 gTN
 oXC

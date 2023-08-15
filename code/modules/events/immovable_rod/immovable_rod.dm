@@ -182,6 +182,17 @@
 		SSexplosions.highturf += clong
 		return ..()
 
+	if(istram(clong))
+		to_chat(world, span_alertwarning("It hit the tram! Direction is [dir]"))
+		if(special_target)
+			return ..()
+
+		switch(dir)
+			if(NORTHEAST, EAST, SOUTHEAST, NORTHWEST, WEST, SOUTHWEST)
+				rod_vs_tram_battle(clong)
+			else
+				return ..()
+
 	if(isobj(clong))
 		var/obj/clong_obj = clong
 		clong_obj.take_damage(INFINITY, BRUTE, NONE, TRUE, dir, INFINITY)
@@ -220,6 +231,33 @@
 
 	if(smeared_mob.density || prob(10))
 		EX_ACT(smeared_mob, EXPLODE_HEAVY)
+
+/obj/effect/immovablerod/proc/rod_vs_tram_battle(clong)
+	var/tram_turf = get_turf(clong)
+	var/obj/structure/industrial_lift/tram/industrial_lift = locate() in tram_turf
+
+	if(isnull(industrial_lift))
+		return
+
+	var/datum/lift_master/tram/lift_master = industrial_lift.lift_master_datum
+
+	if(isnull(lift_master))
+		return
+
+	var/obj/effect/landmark/tram/tramstation/rod/push_target
+	switch(dir)
+		if(EAST, NORTHEAST, SOUTHEAST)
+			for(var/obj/effect/landmark/tram/tramstation/rod/east/target in GLOB.tram_landmarks[MAIN_STATION_TRAM])
+				push_target = target
+		if(WEST, SOUTHWEST, SOUTHEAST)
+			for(var/obj/effect/landmark/tram/tramstation/rod/west/target in GLOB.tram_landmarks[MAIN_STATION_TRAM])
+				push_target = target
+
+	if(!push_target)
+		return
+
+	special_target = push_target
+	lift_master.tram_travel(push_target, TRUE)
 
 /obj/effect/immovablerod/attack_hand(mob/living/user, list/modifiers)
 	. = ..()

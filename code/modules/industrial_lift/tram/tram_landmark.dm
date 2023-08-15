@@ -36,6 +36,12 @@ GLOBAL_LIST_EMPTY(tram_landmarks)
 	platform_code = TRAMSTATION_EAST
 	tgui_icons = list("Departures" = "plane-departure", "Cargo" = "box", "Science" = "flask")
 
+/obj/effect/landmark/tram/tramstation/rod/west
+	name = "Arrivals (Secret)"
+
+/obj/effect/landmark/tram/tramstation/rod/east
+	name = "Departures (Secret)"
+
 //birdshot
 
 /obj/effect/landmark/tram/birdshot/sec_wing
