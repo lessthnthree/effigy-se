@@ -50,17 +50,9 @@
 		qdel(query_add_player)
 		log_effigy_api("Add player [ckey_to_match] to DB whitelist failed!", notify_admins = TRUE)
 		return FALSE
+	qdel(query_add_player)
 
-	if(query_add_player.last_error)
-		log_effigy_api("Add player [ckey_to_match] to DB whitelist failed! Check runtime log for details.", notify_admins = TRUE)
-		stack_trace(query_add_player.last_error)
-		qdel(query_add_player)
-		return FALSE
-
-	else
-		log_effigy_api("Player [ckey_to_match] successfully added to database. Validating.", notify_admins = TRUE)
-		qdel(query_add_player)
-
+	log_effigy_api("Player [ckey_to_match] successfully added to database. Validating.", notify_admins = TRUE)
 	requested_link = SSeffigy.ckey_to_effigy_id(ckey_to_match)
 	if(!requested_link)
 		log_effigy_api("Could not find an Effigy ID for ckey [ckey_to_match] in database!", notify_admins = FALSE) // we don't use the default notify since the message is customised and in a div
