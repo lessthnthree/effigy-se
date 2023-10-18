@@ -982,7 +982,10 @@
 		"borg_upgrade_selfrepair",
 		"borg_upgrade_thrusters",
 		"borg_upgrade_trashofholding",
-		"borg_upgrade_brush", // EFFIGY EDIT ADD
+		// EFFIGY EDIT ADD START
+		"borg_upgrade_clamp",
+		"borg_upgrade_brush", 
+		// EFFIGY EDIT END
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2000)
 
@@ -1263,6 +1266,19 @@
 		"s_server",
 		"s_transmitter",
 		"s_treatment",
+	)
+
+/datum/techweb_node/tram
+	id = "tram"
+	display_name = "Tram Technology"
+	description = "Technology for linear induction transportation systems."
+	prereq_ids = list("telecomms")
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 1500)
+	design_ids = list(
+		"tram_controller",
+		"tram_display",
+		"crossing_signal",
+		"guideway_sensor",
 	)
 
 /datum/techweb_node/integrated_hud
