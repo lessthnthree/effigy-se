@@ -1,6 +1,6 @@
 import { classes } from 'common/react';
 import { sendAct, useBackend, useLocalState } from '../../backend';
-import { Autofocus, Box, Button, Dropdown, FitText, Flex, Icon, Input, LabeledList, Popper, Stack, TrackOutsideClicks } from '../../components';
+import { Autofocus, Box, Button, Dropdown, Flex, Icon, Input, LabeledList, Popper, Stack, TrackOutsideClicks } from '../../components';
 import { createSetPreference, PreferencesMenuData, RandomSetting, ServerData } from './data';
 import { CharacterPreview } from '../common/CharacterPreview';
 import { RandomizationButton } from './RandomizationButton';
@@ -14,7 +14,7 @@ import { useRandomToggleState } from './useRandomToggleState';
 import { createSearch } from 'common/string';
 
 const CLOTHING_CELL_SIZE = 72;
-const CLOTHING_SIDEBAR_ROWS = 10;
+const CLOTHING_SIDEBAR_ROWS = 9;
 
 const CLOTHING_SELECTION_CELL_SIZE = 72;
 const CLOTHING_SELECTION_CELL_SIZE_HORIZONTAL = 96;
@@ -46,6 +46,16 @@ const CharacterControls = (props: {
 
       <Stack.Item>
         <Button
+          onClick={props.handleRotate}
+          fontSize="22px"
+          icon="redo"
+          tooltip="Rotate"
+          tooltipPosition="top"
+        />
+      </Stack.Item>
+
+      <Stack.Item>
+        <Button
           onClick={props.handleOpenSpecies}
           fontSize="22px"
           icon="paw"
@@ -63,7 +73,6 @@ const CharacterControls = (props: {
         </Stack.Item>
       )}
       {props.handleLoadout && (
-        // EffigyEdit Add Customization
         <Stack.Item>
           <Button
             onClick={props.handleLoadout}
@@ -129,7 +138,7 @@ const ChoicedSelection = (
   return (
     <Box
       style={{
-        background: 'white',
+        background: '#dadada',
         padding: '5px',
 
         height: `${
@@ -157,10 +166,10 @@ const ChoicedSelection = (
                 style={{
                   'border-bottom': '1px solid #888',
                   'font-weight': 'bold',
-                  'font-size': '14px',
+                  'font-size': '24px',
                   'text-align': 'center',
                 }}>
-                Select {props.name.toLowerCase()}
+                {props.name}
               </Box>
             </Stack.Item>
 
@@ -179,7 +188,7 @@ const ChoicedSelection = (
               <Input
                 autoFocus
                 width={`${calculatedWidth - 55}px`}
-                placeholder="Search options"
+                placeholder=""
                 value={searchText}
                 onInput={(_, value) => setSearchText(value)}
               />
@@ -219,16 +228,12 @@ const ChoicedSelection = (
                           ])}
                           style={{
                             transform:
-                              'translateX(-50%) translateY(-50%) scale(1.4)',
+                              'translateX(-50%) translateY(-50%) scale(2)',
                           }}
                         />
                       </Button>
-                      <Box textAlign="center">
-                        <FitText
-                          maxWidth={CLOTHING_SELECTION_CELL_SIZE}
-                          maxFontSize={12}>
-                          {name}
-                        </FitText>
+                      <Box textAlign="center" fontSize="14" width="86%">
+                        {name}
                       </Box>
                     </Flex.Item>
                   );
@@ -669,7 +674,8 @@ export const MainPage = (
 
                   <Stack.Item grow>
                     <CharacterPreview
-                      height="80%" // EffigyEdit Change Customization Original 100
+                      height="100%"
+                      width="100%"
                       id={data.character_preview_view}
                     />
                   </Stack.Item>
