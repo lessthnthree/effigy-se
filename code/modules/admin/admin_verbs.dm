@@ -103,6 +103,7 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/cmd_admin_law_panel,
 	/client/proc/log_viewer_new,
 	/client/proc/player_ticket_history,
+	/client/proc/import_json_to_preferences, // EffigyEdit Add - Preferences Management
 	)
 GLOBAL_LIST_INIT(admin_verbs_ban, list(/client/proc/unban_panel, /client/proc/ban_panel, /client/proc/stickybanpanel, /client/proc/library_control))
 GLOBAL_PROTECT(admin_verbs_ban)

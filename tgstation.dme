@@ -6101,6 +6101,7 @@
 #include "local\code\controllers\subsystem\automapper\automapper_subsystem.dm"
 #include "local\code\controllers\subsystem\effigy\effigy_services.dm"
 #include "local\code\controllers\subsystem\effigy\whitelist.dm"
+#include "local\code\controllers\subsystem\persistence\preference_management.dm"
 #include "local\code\controllers\subsystem\processing\reagents.dm"
 #include "local\code\datums\dna.dm"
 #include "local\code\datums\effigy_services.dm"
