@@ -244,3 +244,13 @@
   xXPawnStarrXx:
   - rscadd: Added new lizard variants of existing foods for equality of edibility.
   - qol: made pickle jars reusable and vinegar craftable.
+2024-01-09:
+  unit0016:
+  - bugfix: FoxHoleStation - the bridge is wheelchair accessible now. lol
+  - rscadd: FoxHoleStation's engineering wing has been remapped entirely.
+2024-01-10:
+  LT3:
+  - bugfix: Light range increased corresponding to upstream changes
+2024-01-12:
+  LT3:
+  - bugfix: Autotransfer should no longer call a vote as soon as the shift starts
