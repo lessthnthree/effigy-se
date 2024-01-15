@@ -1,8 +1,8 @@
 import { sortBy, sortStrings } from 'common/collections';
 import { BooleanLike, classes } from 'common/react';
-import { ComponentType, createElement, ReactNode } from 'react';
+import { ComponentType, createElement, ReactNode, useState } from 'react';
 
-import { sendAct, useBackend, useLocalState } from '../../../../backend';
+import { sendAct, useBackend } from '../../../../backend';
 import {
   Box,
   Button,
@@ -389,10 +389,7 @@ export const FeatureValueInput = (props: {
 
   const feature = props.feature;
 
-  const [predictedValue, setPredictedValue] = useLocalState(
-    `${props.featureId}_predictedValue_${data.active_slot}`,
-    props.value,
-  );
+  const [predictedValue, setPredictedValue] = useState(props.value);
 
   const changeValue = (newValue: unknown) => {
     setPredictedValue(newValue);
@@ -476,7 +473,7 @@ export const FeatureTriColorInput = (props: FeatureValueProps<string[]>) => {
                     ? props.value[index]
                     : `#${props.value[index]}`,
                   border: '2px solid #eaeaea',
-                  'box-sizing': 'content-box',
+                  boxSizing: 'content-box',
                   height: '11px',
                   width: '11px',
                   ...(props.shrink
@@ -506,7 +503,7 @@ export const FeatureTriColorInput = (props: FeatureValueProps<string[]>) => {
 export const FeatureTriBoolInput = (props: FeatureValueProps<boolean[]>) => {
   const buttonFromValue = (index) => {
     return (
-      <Stack.Item align="center" fill>
+      <Stack.Item align="center">
         <Button.Checkbox
           checked={!!props.value[index]}
           onClick={() => {

@@ -1,17 +1,18 @@
 import { filter, map, sortBy, uniq } from 'common/collections';
 import { flow } from 'common/fp';
 import { createSearch } from 'common/string';
+import { useState } from 'react';
 
 import { useBackend, useLocalState } from '../backend';
 import {
   Box,
   Button,
   Icon,
+  Image,
   Input,
   Section,
   Stack,
   Tabs,
-  Image,
 } from '../components';
 import { Window } from '../layouts';
 
@@ -42,7 +43,7 @@ export const SelectEquipment = (props) => {
   ]);
   const [tab] = useOutfitTabs(categories);
 
-  const [searchText, setSearchText] = useLocalState('searchText', '');
+  const [searchText, setSearchText] = useState('');
   const searchFilter = createSearch(
     searchText,
     (entry) => entry.name + entry.path,
@@ -75,7 +76,7 @@ export const SelectEquipment = (props) => {
                   autoFocus
                   placeholder="Search"
                   value={searchText}
-                  onChange={(e, value) => setSearchText(value)}
+                  onInput={(e, value) => setSearchText(value)}
                 />
               </Stack.Item>
               <Stack.Item>

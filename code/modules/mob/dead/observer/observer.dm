@@ -151,6 +151,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 
 	SSpoints_of_interest.make_point_of_interest(src)
 	ADD_TRAIT(src, TRAIT_HEAR_THROUGH_DARKNESS, ref(src))
+	ADD_TRAIT(src, TRAIT_SECURITY_HUD, ref(src))
 
 /mob/dead/observer/get_photo_description(obj/item/camera/camera)
 	if(!invisibility || camera.see_ghosts)
@@ -171,10 +172,10 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 		mind.current.med_hud_set_status()
 
 	GLOB.ghost_images_default -= ghostimage_default
-	QDEL_NULL(ghostimage_default)
+	ghostimage_default = null
 
 	GLOB.ghost_images_simple -= ghostimage_simple
-	QDEL_NULL(ghostimage_simple)
+	ghostimage_simple = null
 
 	updateallghostimages()
 
@@ -977,7 +978,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		if(is_secret_level(mob_eye.z) && !client?.holder)
 			set_sight(null) //we dont want ghosts to see through walls in secret areas
 		RegisterSignal(mob_eye, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_observing_z_changed))
-		if(mob_eye.hud_used && src != usr) // can't view your own inventory and hud but you're either A: permanently ghosted out. Or B: dead and it barely matters.
+		if(mob_eye.hud_used)
 			client.clear_screen()
 			LAZYOR(mob_eye.observers, src)
 			mob_eye.hud_used.show_hud(mob_eye.hud_used.hud_version, src)

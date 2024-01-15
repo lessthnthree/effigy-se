@@ -34,6 +34,10 @@ GLOBAL_VAR_INIT(looc_allowed, TRUE)
 /datum/config_entry/flag/allow_vote_transfer
 
 // EFFIGY API STUFF
+/// Enable API features specific to Effigy Live. Disable for downstreams, self-hosted, development etc.
+/datum/config_entry/flag/effigy_live_revision
+	default = FALSE
+
 /// Use the Effigy API
 /datum/config_entry/flag/use_effigy_api
 	default = FALSE
@@ -50,6 +54,13 @@ GLOBAL_VAR_INIT(looc_allowed, TRUE)
 /// API key
 /datum/config_entry/string/effigy_api_key
 	protection = CONFIG_ENTRY_LOCKED | CONFIG_ENTRY_HIDDEN
+
+/// Lobby music track ID
+/datum/config_entry/string/pregame_lobby_track
+
+/// Lobby music track duration
+/datum/config_entry/number/pregame_lobby_duration
+	default = -1
 
 /datum/config_entry/number/cryo_min_ssd_time
 	default = 15
