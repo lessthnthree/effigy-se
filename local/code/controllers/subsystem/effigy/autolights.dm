@@ -2,7 +2,7 @@ SUBSYSTEM_DEF(autolights)
 	name = "Auto Lights"
 	wait = 14 SECONDS
 	flags = SS_POST_FIRE_TIMING | SS_BACKGROUND
-	runlevels = RUNLEVEL_GAME
+	runlevels = RUNLEVEL_SETUP | RUNLEVEL_GAME
 	init_order = INIT_ORDER_AUTO_LIGHTING
 	init_stage = INITSTAGE_MAX
 
@@ -21,7 +21,7 @@ SUBSYSTEM_DEF(autolights)
 
 /datum/controller/subsystem/autolights/proc/post_setup()
 	for(var/area/autolights_area in active_areas)
-		autolights_area.init_auto_lights()
+		autolights_area.check_auto_lights(forced = TRUE)
 
 /datum/controller/subsystem/ticker/PostSetup()
 	. = ..()
