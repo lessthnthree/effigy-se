@@ -27,14 +27,6 @@
 /obj/machinery/power/rad_collector
 	icon = 'local/icons/obj/engine/emitter.dmi'
 
-
-#ifndef UNIT_TESTS
-/obj/machinery/light_switch/LateInitialize()
-	. = ..()
-	if(prob(70) && area.lightswitch) //70% chance for area to start with lights off.
-		turn_off()
-#endif
-
 /obj/machinery/light_switch/proc/turn_off()
 	if(!area.lightswitch)
 		return
