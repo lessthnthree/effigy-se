@@ -612,6 +612,7 @@
 
 /obj/machinery/door/firedoor/update_overlays()
 	. = ..()
+	/* EffigyEdit Remove - moved to local/code/game/machinery/doors/firedoor.dm
 	if(welded)
 		. += density ? "welded" : "welded_open"
 	if(alarm_type && powered() && !ignore_alarms)
@@ -624,6 +625,7 @@
 		hazards.pixel_x = light_xoffset
 		hazards.pixel_y = light_yoffset
 		. += hazards
+	*/// EffigyEdit Remove End
 
 /**
  * Corrects the current state of the door, based on its activity.
@@ -659,20 +661,18 @@
 	if(old_activity != active) //Something changed while we were sleeping
 		correct_state() //So we should re-evaluate our state
 
-/obj/machinery/door/firedoor/deconstruct(disassembled = TRUE)
-	if(!(obj_flags & NO_DECONSTRUCTION))
-		var/turf/targetloc = get_turf(src)
-		if(disassembled || prob(40))
-			var/obj/structure/firelock_frame/unbuilt_lock = new assemblytype(targetloc)
-			if(disassembled)
-				unbuilt_lock.constructionStep = CONSTRUCTION_PANEL_OPEN
-			else
-				unbuilt_lock.constructionStep = CONSTRUCTION_NO_CIRCUIT
-				unbuilt_lock.update_integrity(unbuilt_lock.max_integrity * 0.5)
-			unbuilt_lock.update_appearance()
+/obj/machinery/door/firedoor/on_deconstruction(disassembled)
+	var/turf/targetloc = get_turf(src)
+	if(disassembled || prob(40))
+		var/obj/structure/firelock_frame/unbuilt_lock = new assemblytype(targetloc)
+		if(disassembled)
+			unbuilt_lock.constructionStep = CONSTRUCTION_PANEL_OPEN
 		else
-			new /obj/item/electronics/firelock (targetloc)
-	qdel(src)
+			unbuilt_lock.constructionStep = CONSTRUCTION_NO_CIRCUIT
+			unbuilt_lock.update_integrity(unbuilt_lock.max_integrity * 0.5)
+		unbuilt_lock.update_appearance()
+	else
+		new /obj/item/electronics/firelock (targetloc)
 
 /obj/machinery/door/firedoor/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
 	. = ..()
