@@ -43,6 +43,7 @@
 		var/character_ad = ""
 		var/exploitable = ""
 		var/ref = REF(mob)
+		var/headshot = ""
 		//Just in case something we get is not a mob
 		if(!mob)
 			continue
@@ -74,6 +75,7 @@
 		erp = READ_PREFS(mob, choiced/erp_status)
 		character_ad = READ_PREFS(mob, text/character_ad)
 		ooc_notes = READ_PREFS(mob, text/ooc_notes)
+		headshot = READ_PREFS(mob, text/headshot)
 		//If the user is an antagonist or Observer, we want them to be able to see exploitables in the Directory.
 		if(user.mind?.has_antag_datum(/datum/antagonist) || isobserver(user))
 			if(exploitable == EXPLOITABLE_DEFAULT_TEXT)
@@ -93,6 +95,7 @@
 			"exploitable" = exploitable,
 			"character_ad" = character_ad,
 			"flavor_text" = flavor_text,
+			"headshot" = headshot,
 			"ref" = ref
 		)))
 
