@@ -209,7 +209,7 @@
 /turf/open/floor/plating/reinforced,
 /area/station/maintenance/starboard/greater)
 "acL" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
 	},
@@ -558,7 +558,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4{
 	dir = 4
 	},
@@ -4626,7 +4626,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/wideplating_new,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
 /turf/open/floor/iron/smooth_large,
@@ -4980,7 +4980,7 @@
 /turf/open/floor/plating,
 /area/station/service/janitor/wetworks/deck_two)
 "bfP" = (
-/obj/machinery/computer/department_orders/engineering{
+/obj/machinery/modular_computer/preset/cargochat/engineering{
 	dir = 8
 	},
 /turf/open/floor/wood/parquet,
@@ -6058,7 +6058,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/wideplating_new,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/machinery/duct/waste,
 /turf/open/floor/iron/smooth_large,
 /area/station/engineering/main)
@@ -6604,7 +6604,7 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 4
 	},
-/obj/machinery/disposal/bin,
+/obj/machinery/disposal/bin/tagger,
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
@@ -6707,7 +6707,7 @@
 /obj/effect/turf_decal/trimline/brown/warning{
 	dir = 1
 	},
-/obj/machinery/disposal/bin,
+/obj/machinery/disposal/bin/tagger,
 /obj/machinery/firealarm/directional/north,
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/camera/autoname/directional/north,
@@ -9446,7 +9446,7 @@
 /turf/open/floor/iron/lowered,
 /area/station/maintenance/floor1/port/aft)
 "chZ" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/machinery/vending/boozeomat/all_access,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
@@ -11153,14 +11153,6 @@
 /obj/structure/bookcase/random/reference,
 /turf/open/floor/wood/large,
 /area/station/medical/psychology)
-"cCB" = (
-/obj/effect/turf_decal/siding/wideplating_new,
-/obj/effect/turf_decal/siding/wideplating_new{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/turf/open/floor/iron/smooth_large,
-/area/station/cargo/storage)
 "cCI" = (
 /turf/closed/wall/r_wall,
 /area/station/maintenance/department/bridge)
@@ -12058,7 +12050,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /turf/open/floor/iron/smooth_large,
 /area/station/engineering/main)
 "cOF" = (
@@ -13293,7 +13285,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 8
 	},
-/obj/machinery/door/firedoor/heavy,
+/obj/machinery/door/firedoor/water_sensor/heavy,
 /turf/open/floor/iron/smooth_large,
 /area/station/engineering/atmos)
 "daI" = (
@@ -13415,7 +13407,7 @@
 /obj/effect/turf_decal/trimline/red/line{
 	dir = 4
 	},
-/obj/machinery/disposal/bin,
+/obj/machinery/disposal/bin/tagger,
 /obj/structure/disposalpipe/trunk,
 /turf/open/floor/iron,
 /area/station/security/brig)
@@ -14352,7 +14344,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/wideplating_new,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /turf/open/floor/iron/smooth_large,
@@ -14455,7 +14447,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/machinery/duct/waste,
 /turf/open/floor/iron/smooth_large,
 /area/station/hallway/floor1/aft)
@@ -15972,7 +15964,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
 /turf/open/floor/iron/smooth_large,
 /area/station/medical/treatment_center)
@@ -16292,7 +16284,7 @@
 /turf/open/floor/iron/textured,
 /area/station/medical/morgue)
 "dNy" = (
-/mob/living/simple_animal/slime,
+/mob/living/basic/slime,
 /turf/open/floor/engine,
 /area/station/science/xenobiology)
 "dNA" = (
@@ -16803,7 +16795,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /turf/open/floor/iron/smooth_large,
 /area/station/hallway/floor2/aft)
 "dTb" = (
@@ -17402,7 +17394,7 @@
 /turf/open/floor/iron/smooth_large,
 /area/station/engineering/atmos)
 "ebI" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
 	},
@@ -18738,7 +18730,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/floor1/port/aft)
 "eqY" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
 	},
@@ -20802,7 +20794,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 1
 	},
-/obj/machinery/door/firedoor/heavy,
+/obj/machinery/door/firedoor/water_sensor/heavy,
 /obj/machinery/atmospherics/pipe/layer_manifold/supply/hidden,
 /turf/open/floor/iron/smooth_large,
 /area/station/engineering/atmos)
@@ -21854,7 +21846,7 @@
 /turf/open/floor/iron/diagonal,
 /area/station/service/hydroponics/garden)
 "fbt" = (
-/obj/machinery/door/firedoor/heavy,
+/obj/machinery/door/firedoor/water_sensor/heavy,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 8
 	},
@@ -22514,17 +22506,6 @@
 /obj/structure/fans/tiny/shield,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/entry)
-"fiU" = (
-/obj/effect/turf_decal/siding/wideplating_new,
-/obj/effect/turf_decal/siding/wideplating_new{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
-/turf/open/floor/iron/smooth_large,
-/area/station/cargo/storage)
 "fja" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
@@ -25151,7 +25132,7 @@
 "fOY" = (
 /obj/machinery/duct/supply,
 /obj/structure/cable,
-/obj/machinery/door/firedoor/heavy,
+/obj/machinery/door/firedoor/water_sensor/heavy,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 8
 	},
@@ -26920,6 +26901,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/door/firedoor/water_sensor,
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine)
 "gkz" = (
@@ -27862,6 +27844,8 @@
 	},
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/east,
+/obj/item/piggy_bank/vault,
+/obj/structure/table/wood,
 /turf/open/floor/iron/large,
 /area/station/ai_monitored/command/nuke_storage)
 "gut" = (
@@ -31553,7 +31537,7 @@
 /turf/open/misc/asteroid/snow/standard_air,
 /area/station/maintenance/floor1/port/aft)
 "hnE" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
 	},
@@ -35055,7 +35039,7 @@
 /area/station/command/heads_quarters/rd)
 "ijg" = (
 /obj/machinery/smartfridge/chemistry/preloaded,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/effect/turf_decal/siding/wideplating_new/corner{
 	dir = 1
 	},
@@ -35782,7 +35766,7 @@
 /area/station/hallway/floor1/fore)
 "irv" = (
 /obj/machinery/smartfridge/chemistry/preloaded,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /turf/open/floor/plating,
 /area/station/medical/pharmacy)
 "iry" = (
@@ -36533,7 +36517,7 @@
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "iAx" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
 	},
@@ -37041,6 +37025,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/cable,
 /obj/machinery/duct/waste,
+/obj/machinery/door/firedoor/water_sensor/heavy,
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine)
 "iFV" = (
@@ -39287,7 +39272,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
 /turf/open/floor/iron/smooth_large,
 /area/station/security/brig)
@@ -39443,7 +39428,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /turf/open/floor/iron/smooth_large,
 /area/station/security/brig)
@@ -39536,7 +39521,6 @@
 /turf/open/floor/iron/smooth,
 /area/station/commons/vacant_room)
 "jlF" = (
-/obj/structure/railing/corner/end,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
@@ -39934,12 +39918,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
-/obj/structure/chair/office{
-	dir = 4
-	},
-/obj/structure/railing{
-	dir = 8
-	},
+/obj/structure/railing/corner/end,
 /turf/open/floor/wood/parquet,
 /area/station/engineering/break_room)
 "jqO" = (
@@ -40352,7 +40331,7 @@
 /area/station/maintenance/floor1/port/aft)
 "jvP" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/structure/desk_bell{
 	pixel_x = 7;
 	pixel_y = 6
@@ -42977,7 +42956,7 @@
 /turf/open/floor/iron/dark/small,
 /area/station/maintenance/floor1/port/aft)
 "kdV" = (
-/obj/machinery/disposal/bin,
+/obj/machinery/disposal/bin/tagger,
 /obj/effect/turf_decal/siding/yellow{
 	dir = 6
 	},
@@ -44958,10 +44937,8 @@
 /turf/open/floor/iron/white,
 /area/station/maintenance/starboard/greater)
 "kBl" = (
-/obj/structure/rack,
+/obj/structure/table,
 /obj/item/mod/module/plasma_stabilizer,
-/obj/item/mod/module/thermal_regulator,
-/obj/item/mod/module/signlang_radio,
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/smooth_large,
 /area/station/medical/storage)
@@ -45378,7 +45355,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /turf/open/floor/iron/smooth_large,
 /area/station/security/brig)
 "kGs" = (
@@ -45392,7 +45369,7 @@
 /turf/open/floor/iron/diagonal,
 /area/station/command/heads_quarters/ce)
 "kGz" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
 	},
@@ -47011,7 +46988,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/structure/barricade/security,
 /turf/open/floor/iron/dark/smooth_half{
 	dir = 1
@@ -48755,7 +48732,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/wideplating_new,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
 /turf/open/floor/iron/smooth_large,
@@ -49770,15 +49747,6 @@
 	},
 /turf/open/floor/iron/diagonal,
 /area/station/hallway/floor2/aft)
-"lJW" = (
-/obj/effect/turf_decal/siding/wideplating_new,
-/obj/effect/turf_decal/siding/wideplating_new{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/duct/waste,
-/turf/open/floor/iron/smooth_large,
-/area/station/cargo/storage)
 "lKd" = (
 /obj/machinery/chem_master,
 /obj/effect/turf_decal/tile/yellow/diagonal_centre,
@@ -50754,7 +50722,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
 	},
-/obj/machinery/disposal/bin,
+/obj/machinery/disposal/bin/tagger,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
@@ -53218,7 +53186,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /turf/open/floor/iron/smooth_large,
 /area/station/hallway/floor1/aft)
 "mBf" = (
@@ -53805,6 +53773,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/door/firedoor/water_sensor,
 /turf/open/floor/iron/smooth_large,
 /area/station/maintenance/department/cargo)
 "mIh" = (
@@ -54412,7 +54381,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "mQh" = (
-/obj/machinery/door/firedoor/heavy,
+/obj/machinery/door/firedoor/water_sensor/heavy,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
 	},
@@ -54801,7 +54770,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 8
 	},
-/obj/machinery/door/firedoor/heavy,
+/obj/machinery/door/firedoor/water_sensor/heavy,
 /turf/open/floor/iron/smooth_large,
 /area/station/engineering/atmos)
 "mUv" = (
@@ -55255,12 +55224,10 @@
 /turf/open/floor/iron/white/textured_large,
 /area/station/science/ordnance/office)
 "mZY" = (
-/obj/machinery/computer/department_orders/science{
-	dir = 4
-	},
 /obj/effect/turf_decal/siding/wideplating_new/light{
 	dir = 6
 	},
+/obj/item/kirbyplants/random,
 /turf/open/floor/iron/diagonal,
 /area/station/science/research)
 "naa" = (
@@ -55584,8 +55551,20 @@
 	},
 /turf/open/floor/iron/dark/small,
 /area/station/service/chapel)
+"ndZ" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/water_sensor,
+/turf/open/floor/iron/dark/smooth_half{
+	dir = 1
+	},
+/area/station/commons/fitness/recreation/entertainment)
 "nej" = (
-/mob/living/simple_animal/slime,
+/mob/living/basic/slime,
 /obj/machinery/light/directional/north,
 /turf/open/floor/engine,
 /area/station/science/xenobiology)
@@ -56291,13 +56270,15 @@
 /turf/open/floor/catwalk_floor,
 /area/station/hallway/secondary/entry)
 "nmi" = (
-/obj/machinery/modular_computer/preset/cargochat/engineering{
-	dir = 8
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
 /obj/machinery/airalarm/directional/east,
+/obj/structure/rack,
+/obj/item/lightreplacer{
+	pixel_y = 7
+	},
+/obj/item/storage/box/lights/mixed,
 /turf/open/floor/wood/parquet,
 /area/station/engineering/break_room)
 "nmo" = (
@@ -56396,7 +56377,7 @@
 /turf/closed/wall/r_wall,
 /area/station/ai_monitored/turret_protected/aisat/hallway)
 "nmW" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
 	},
@@ -59072,7 +59053,7 @@
 /turf/open/floor/plating/reinforced,
 /area/station/medical/abandoned)
 "nWF" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/door/window/brigdoor/right/directional/west{
 	name = "Warden's Desk";
@@ -59429,7 +59410,7 @@
 /turf/open/floor/iron/dark,
 /area/station/security/prison/mess)
 "obm" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
 	},
@@ -60494,7 +60475,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/machinery/duct/supply,
 /obj/machinery/duct/waste,
 /obj/structure/cable,
@@ -62950,7 +62931,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/structure/cable,
 /turf/open/floor/iron/smooth_large,
 /area/station/security/medical)
@@ -63509,6 +63490,7 @@
 /obj/item/stack/tile/iron/base,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/cable,
+/obj/machinery/door/firedoor/water_sensor,
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine)
 "oZG" = (
@@ -64006,7 +63988,7 @@
 /turf/open/floor/stone,
 /area/station/security/prison/garden)
 "pgj" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/left/directional/east{
 	req_access = list("cargo")
@@ -64843,7 +64825,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/machinery/duct/supply,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /turf/open/floor/iron/smooth_large,
@@ -67566,7 +67548,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/trimline/brown/warning{
-	dir = 1
+	dir = 5
 	},
 /turf/open/floor/iron/smooth_large,
 /area/station/medical/storage)
@@ -67969,17 +67951,17 @@
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/security/prison)
 "qdc" = (
-/obj/machinery/computer/department_orders/service{
-	dir = 4
-	},
 /obj/effect/turf_decal/tile/brown/opposingcorners{
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/yellow/opposingcorners,
-/obj/effect/turf_decal/siding/wideplating_new/end{
-	dir = 1
+/obj/effect/turf_decal/siding/wideplating_new{
+	dir = 6
 	},
 /obj/machinery/airalarm/directional/west,
+/obj/machinery/modular_computer/preset/cargochat/service{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/service)
 "qdj" = (
@@ -70783,7 +70765,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 8
 	},
-/obj/structure/secure_safe/caps_spare/directional/south,
+/obj/structure/secure_safe/caps_spare,
 /turf/open/floor/iron/half{
 	dir = 8
 	},
@@ -72314,14 +72296,7 @@
 /turf/open/floor/wood,
 /area/station/maintenance/floor1/starboard/aft)
 "rbc" = (
-/obj/machinery/modular_computer/preset/cargochat/service{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/brown/opposingcorners{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/yellow/opposingcorners,
-/obj/effect/turf_decal/siding/wideplating_new/end,
+/obj/structure/hedge,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/service)
 "rbg" = (
@@ -72842,7 +72817,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/wideplating_new,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/machinery/duct/supply,
 /turf/open/floor/iron/smooth_large,
 /area/station/engineering/main)
@@ -74842,7 +74817,7 @@
 /turf/open/floor/iron/smooth_large,
 /area/station/medical/storage)
 "rHr" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/structure/table/reinforced,
 /obj/item/folder/red,
 /obj/item/pen,
@@ -74869,6 +74844,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
+/obj/machinery/door/firedoor/water_sensor,
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/miningdock)
 "rHt" = (
@@ -75121,7 +75097,7 @@
 /obj/effect/turf_decal/trimline/dark/filled/line{
 	dir = 1
 	},
-/obj/machinery/disposal/bin,
+/obj/machinery/disposal/bin/tagger,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
@@ -75395,7 +75371,7 @@
 /turf/open/floor/iron/herringbone,
 /area/station/science/ordnance)
 "rNm" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor/heavy,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
 	},
@@ -75799,7 +75775,7 @@
 /turf/open/floor/iron,
 /area/station/command/bridge)
 "rSn" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
 	},
@@ -76037,7 +76013,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/wideplating_new,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/structure/table/reinforced,
 /turf/open/floor/iron/smooth_large,
 /area/station/service/kitchen)
@@ -76195,7 +76171,7 @@
 /turf/open/floor/iron/diagonal,
 /area/station/command/heads_quarters/captain)
 "rWT" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
 	},
@@ -76729,7 +76705,7 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmospherics_engine)
 "sev" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
 	},
@@ -77289,7 +77265,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/mid_joiner{
 	dir = 1
 	},
-/obj/machinery/disposal/bin,
+/obj/machinery/disposal/bin/tagger,
 /obj/machinery/firealarm/directional/north,
 /obj/structure/disposalpipe/trunk{
 	dir = 8
@@ -78509,13 +78485,11 @@
 /turf/open/floor/iron/diagonal,
 /area/station/hallway/floor2/aft)
 "sCH" = (
-/obj/machinery/computer/department_orders/security{
-	dir = 8
-	},
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 8
 	},
 /obj/machinery/light/small/directional/east,
+/obj/item/kirbyplants/random,
 /turf/open/floor/iron/herringbone,
 /area/station/security/office)
 "sCV" = (
@@ -78641,7 +78615,7 @@
 /turf/open/floor/wood,
 /area/station/cargo/storage)
 "sEW" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/machinery/smartfridge/chemistry/preloaded,
 /turf/open/floor/plating,
 /area/station/medical/chem_storage)
@@ -79819,7 +79793,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 8
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/machinery/vending/autodrobe,
 /turf/open/floor/iron/smooth_large,
 /area/station/service/theater)
@@ -80263,7 +80237,7 @@
 /turf/open/misc/dirt/dark/station,
 /area/station/service/hydroponics/garden)
 "sZd" = (
-/obj/machinery/cryopod{
+/obj/machinery/cryopod/no_latejoin{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/blue/full,
@@ -80869,7 +80843,7 @@
 /turf/open/floor/iron,
 /area/station/engineering/storage)
 "tgD" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/left/directional/north{
 	name = "Pharmacy Desk";
@@ -81148,7 +81122,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 1
 	},
-/obj/machinery/door/firedoor/heavy,
+/obj/machinery/door/firedoor/water_sensor/heavy,
 /turf/open/floor/iron/smooth_large,
 /area/station/engineering/atmos)
 "tjO" = (
@@ -82216,14 +82190,6 @@
 /obj/item/stack/tile/iron/base,
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine)
-"twV" = (
-/obj/structure/cable/layer3,
-/obj/structure/cable,
-/obj/machinery/duct/supply,
-/obj/machinery/duct/waste,
-/obj/machinery/airalarm/directional/north,
-/turf/open/floor/iron,
-/area/station/engineering/main)
 "twY" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/iron,
@@ -84883,7 +84849,7 @@
 	dir = 8
 	},
 /obj/machinery/vending/clothing,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /turf/open/floor/iron/smooth_large,
 /area/station/service/theater)
 "ufG" = (
@@ -85812,7 +85778,7 @@
 /area/station/security/medical)
 "urW" = (
 /obj/structure/table/reinforced,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/item/restraints/handcuffs,
 /obj/item/assembly/flash/handheld,
 /obj/machinery/door/window/brigdoor/right/directional/east{
@@ -86937,7 +86903,7 @@
 /turf/open/floor/iron,
 /area/station/engineering/hallway)
 "uFd" = (
-/obj/machinery/disposal/bin,
+/obj/machinery/disposal/bin/tagger,
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron,
@@ -87756,7 +87722,7 @@
 /turf/open/floor/plating/elevatorshaft,
 /area/station/engineering/atmos)
 "uRo" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
 	},
@@ -88789,7 +88755,7 @@
 /turf/open/floor/iron/smooth_large,
 /area/station/medical/morgue)
 "veT" = (
-/obj/machinery/door/firedoor/heavy,
+/obj/machinery/door/firedoor/water_sensor/heavy,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
 	},
@@ -89087,7 +89053,7 @@
 /turf/open/floor/iron/herringbone,
 /area/station/cargo/storage)
 "viY" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
 	},
@@ -93083,7 +93049,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/machinery/duct/supply,
 /obj/machinery/duct/waste,
 /turf/open/floor/iron/smooth_large,
@@ -95139,7 +95105,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/machinery/duct/supply,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/hidden/layer2,
@@ -96091,11 +96057,6 @@
 /turf/open/misc/beach/sand,
 /area/station/maintenance/floor2/starboard)
 "wPq" = (
-/obj/structure/rack,
-/obj/item/lightreplacer{
-	pixel_y = 7
-	},
-/obj/item/storage/box/lights/mixed,
 /turf/open/floor/iron,
 /area/station/engineering/break_room)
 "wPr" = (
@@ -96669,7 +96630,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/floor1/port/aft)
 "wVO" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/structure/table_frame,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
@@ -96699,11 +96660,13 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
-/obj/structure/table,
 /obj/structure/railing{
 	dir = 8
 	},
 /obj/machinery/incident_display/delam/directional/south,
+/obj/structure/chair/office{
+	dir = 4
+	},
 /turf/open/floor/wood/parquet,
 /area/station/engineering/break_room)
 "wWy" = (
@@ -97308,7 +97271,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/science)
 "xdX" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
 	},
@@ -99863,7 +99826,7 @@
 /turf/open/floor/catwalk_floor/iron,
 /area/station/engineering/atmospherics_engine)
 "xIO" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 4
 	},
@@ -100111,7 +100074,7 @@
 /turf/closed/wall,
 /area/station/security/medical)
 "xLM" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/door/window/brigdoor/right/directional/north{
 	name = "Security Desk";
@@ -100512,13 +100475,10 @@
 /turf/open/floor/iron/white/smooth_half,
 /area/station/science/ordnance/storage)
 "xPB" = (
-/obj/machinery/computer/department_orders/medical{
-	dir = 1
-	},
-/obj/effect/turf_decal/trimline/brown/warning{
-	dir = 5
-	},
 /obj/machinery/airalarm/directional/south,
+/obj/structure/table,
+/obj/item/mod/module/signlang_radio,
+/obj/item/mod/module/thermal_regulator,
 /turf/open/floor/iron/smooth_large,
 /area/station/medical/storage)
 "xPH" = (
@@ -101038,7 +100998,7 @@
 "xXh" = (
 /obj/machinery/camera/autoname/directional/west,
 /obj/structure/disposalpipe/trunk,
-/obj/machinery/disposal/bin,
+/obj/machinery/disposal/bin/tagger,
 /turf/open/floor/iron/dark,
 /area/station/service/kitchen)
 "xXj" = (
@@ -101356,7 +101316,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/siding/wideplating_new,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/machinery/duct/supply,
 /obj/machinery/duct/waste,
 /turf/open/floor/iron/smooth_large,
@@ -101898,7 +101858,7 @@
 /turf/open/floor/iron/diagonal,
 /area/station/command/heads_quarters/ce)
 "yjk" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor/water_sensor,
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/left/directional/south{
 	name = "Pharmacy Desk";
@@ -102134,7 +102094,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 1
 	},
-/obj/machinery/door/firedoor/heavy,
+/obj/machinery/door/firedoor/water_sensor/heavy,
 /obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/hidden,
 /turf/open/floor/iron/smooth_large,
 /area/station/engineering/atmos)
@@ -136243,7 +136203,7 @@ pKV
 pKV
 gQK
 hfO
-twV
+ogQ
 fGt
 hmf
 eKb
@@ -144401,7 +144361,7 @@ qHG
 rZG
 vhq
 hgy
-lJW
+cPN
 aIy
 gub
 tOR
@@ -144658,7 +144618,7 @@ lKX
 cxF
 bDw
 yag
-fiU
+aOR
 ygU
 cMk
 esb
@@ -144915,7 +144875,7 @@ mKQ
 kFI
 xbJ
 ljf
-cCB
+fIj
 lVE
 uNn
 pcD
@@ -145423,7 +145383,7 @@ eNd
 xjE
 dcs
 dNT
-lJW
+cPN
 pKl
 blr
 iwj
@@ -145680,7 +145640,7 @@ xYN
 lHC
 lHC
 qiy
-fiU
+aOR
 gtu
 ePE
 vll
@@ -145937,7 +145897,7 @@ xzd
 usa
 kqr
 nhv
-cCB
+fIj
 fWp
 xfh
 sEU
@@ -199679,7 +199639,7 @@ eDu
 eDu
 srQ
 kZk
-oks
+ndZ
 cww
 srQ
 oac
@@ -201738,7 +201698,7 @@ oac
 srQ
 cww
 kZk
-oks
+ndZ
 rur
 rur
 auD

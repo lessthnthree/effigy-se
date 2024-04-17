@@ -234,7 +234,7 @@
 	if(seconds_electrified > MACHINE_NOT_ELECTRIFIED)
 		seconds_electrified--
 	if(mod_link.link_call)
-		subtract_charge((DEFAULT_CHARGE_DRAIN * 0.25) * seconds_per_tick)
+		subtract_charge(0.25 * DEFAULT_CHARGE_DRAIN * seconds_per_tick)
 	if(!active)
 		return
 	if(!get_charge() && active && !activating)
@@ -242,9 +242,8 @@
 		return
 	var/malfunctioning_charge_drain = 0
 	if(malfunctioning)
-		malfunctioning_charge_drain = rand(1,20)
+		malfunctioning_charge_drain = rand(0.2 * DEFAULT_CHARGE_DRAIN, 4 * DEFAULT_CHARGE_DRAIN) // About triple power usage on average.
 	subtract_charge((charge_drain + malfunctioning_charge_drain) * seconds_per_tick)
-	update_charge_alert()
 	for(var/obj/item/mod/module/module as anything in modules)
 		if(malfunctioning && module.active && SPT_PROB(5, seconds_per_tick))
 			module.on_deactivation(display_message = TRUE)
@@ -328,7 +327,6 @@
 		wrench.play_tool_sound(src, 100)
 		balloon_alert(user, "core removed")
 		core.forceMove(drop_location())
-		update_charge_alert()
 		return TRUE
 	return ..()
 
@@ -411,7 +409,6 @@
 		attacking_core.install(src)
 		balloon_alert(user, "core installed")
 		playsound(src, 'sound/machines/click.ogg', 50, TRUE, SILENCED_SOUND_EXTRARANGE)
-		update_charge_alert()
 		return TRUE
 	else if(is_wire_tool(attacking_item) && open)
 		wires.interact(user)
@@ -422,11 +419,9 @@
 	return ..()
 
 /obj/item/mod/control/get_cell()
-	if(!open)
-		return
 	var/obj/item/stock_parts/cell/cell = get_charge_source()
 	if(!istype(cell))
-		return
+		return null
 	return cell
 
 /obj/item/mod/control/GetAccess()
@@ -496,8 +491,8 @@
 	for(var/obj/item/mod/module/module as anything in modules)
 		module.on_unequip()
 	UnregisterSignal(wearer, list(COMSIG_ATOM_EXITED, COMSIG_SPECIES_GAIN))
-	wearer.clear_alert(ALERT_MODSUIT_CHARGE)
 	SEND_SIGNAL(src, COMSIG_MOD_WEARER_UNSET, wearer)
+	wearer.update_spacesuit_hud_icon("0")
 	wearer = null
 
 /obj/item/mod/control/proc/clean_up()
@@ -640,13 +635,21 @@
 /obj/item/mod/control/proc/check_charge(amount)
 	return core?.check_charge(amount) || FALSE
 
+/**
+ * Updates the wearer's hud according to the current state of the MODsuit
+ */
 /obj/item/mod/control/proc/update_charge_alert()
-	if(!wearer)
+	if(isnull(wearer))
 		return
-	if(!core)
-		wearer.throw_alert(ALERT_MODSUIT_CHARGE, /atom/movable/screen/alert/nocore)
-		return
-	core.update_charge_alert()
+	var/state_to_use
+	if(!active)
+		state_to_use = "0"
+	else if(isnull(core))
+		state_to_use = "coreless"
+	else
+		state_to_use = core.get_charge_icon_state()
+
+	wearer.update_spacesuit_hud_icon(state_to_use || "0")
 
 /obj/item/mod/control/proc/update_speed()
 	var/list/all_parts = mod_parts + src
@@ -695,7 +698,7 @@
 		part.flags_cover = category[UNSEALED_COVER] || NONE
 		part.visor_flags_cover = category[SEALED_COVER] || NONE
 		part.alternate_worn_layer = category[UNSEALED_LAYER]
-		mod_parts[part] = part.alternate_worn_layer\
+		mod_parts[part] = part.alternate_worn_layer
 		// EffigyEdit Remove START
 		/*
 		if(!category[CAN_OVERSLOT])
@@ -716,7 +719,6 @@
 		return
 	if(part == core)
 		core.uninstall()
-		update_charge_alert()
 		return
 	if(part.loc == wearer)
 		return
@@ -766,7 +768,7 @@
 		to_chat(user, span_warning("It's too dangerous to smear [speed_potion] on [src] while it's active!"))
 		return SPEED_POTION_STOP
 	to_chat(user, span_notice("You slather the red gunk over [src], making it faster."))
-	set_mod_color("#FF0000")
+	set_mod_color(COLOR_RED)
 	slowdown_inactive = 0
 	slowdown_active = 0
 	update_speed()

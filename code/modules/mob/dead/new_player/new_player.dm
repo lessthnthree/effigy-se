@@ -201,7 +201,7 @@
 
 	hide_title_screen() // EffigyEdit Add - SPLASH
 	mind.late_joiner = TRUE
-	var/atom/destination = mind.assigned_role.get_latejoin_spawn_point()
+	var/atom/destination = mind.assigned_role.get_latejoin_spawn_point(src) // EFFIGY EDIT - Added "src"; Spawnprefs
 	if(!destination)
 		CRASH("Failed to find a latejoin spawn point.")
 	var/mob/living/character = create_character(destination)
@@ -241,7 +241,7 @@
 		// EffigyEdit Change START - CUSTOMIZATION
 		var/chosen_rank = rank // put alt job here
 		GLOB.manifest.inject(humanc, humanc.client)
-		if(SSshuttle.arrivals)
+		if(SSshuttle.arrivals && humanc.client.prefs.read_preference(/datum/preference/choiced/latejoin_location) == JOB_LATEJOINPREF_ARRIVALS) /// EFFIGY EDIT - Latejoin Spawnpref
 			SSshuttle.arrivals.QueueAnnounce(humanc, chosen_rank)
 		else
 			announce_arrival(humanc, chosen_rank)
@@ -272,7 +272,7 @@
 	var/area/station/arrivals = GLOB.areas_by_type[/area/station/hallway/secondary/entry]
 	if(humanc && arrivals && !arrivals.power_environ) //arrivals depowered
 		humanc.put_in_hands(new /obj/item/crowbar/large/emergency(get_turf(humanc))) //if hands full then just drops on the floor
-	log_manifest(character.mind.key,character.mind,character,latejoin = TRUE)
+	log_manifest(character.mind.key, character.mind, character, latejoin = TRUE)
 
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_CREWMEMBER_JOINED, character, rank)
 

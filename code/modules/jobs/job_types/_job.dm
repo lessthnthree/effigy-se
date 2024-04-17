@@ -117,7 +117,7 @@
 	/// RPG job names, for the memes
 	var/rpg_title
 
-	/// Alternate titles to register as pointing to this job. 
+	/// Alternate titles to register as pointing to this job.
 	var/list/alternate_titles
 
 	/// Does this job ignore human authority?
@@ -194,11 +194,12 @@
 #define VERY_LATE_ARRIVAL_TOAST_PROB 20
 
 /mob/living/carbon/human/on_job_equipping(datum/job/equipping, datum/preferences/used_pref) // EffigyEdit Change - Customization - add used_pref
-	var/datum/bank_account/bank_account = new(real_name, equipping, dna.species.payday_modifier)
-	bank_account.payday(STARTING_PAYCHECKS, TRUE)
-	account_id = bank_account.account_id
-	bank_account.replaceable = FALSE
-	add_mob_memory(/datum/memory/key/account, remembered_id = account_id)
+	if(equipping.paycheck_department)
+		var/datum/bank_account/bank_account = new(real_name, equipping, dna.species.payday_modifier)
+		bank_account.payday(STARTING_PAYCHECKS, TRUE)
+		account_id = bank_account.account_id
+		bank_account.replaceable = FALSE
+		add_mob_memory(/datum/memory/key/account, remembered_id = account_id)
 
 	dress_up_as_job(equipping, FALSE, used_pref) // EffigyEdit Add - Customization
 
@@ -478,9 +479,19 @@
 		log_mapping("Job [title] ([type]) couldn't find a round start spawn point.")
 
 /// Finds a valid latejoin spawn point, checking for events and special conditions.
-/datum/job/proc/get_latejoin_spawn_point()
+/datum/job/proc/get_latejoin_spawn_point(our_joiner) // Effigy Edit - added "our_joiner"
 	if(length(GLOB.jobspawn_overrides[title])) //We're doing something special today.
 		return pick(GLOB.jobspawn_overrides[title])
+	/// EFFIGY EDIT BEGIN - SPAWN PREFS ///
+	if(our_joiner && istype(our_joiner, /mob))
+		var/mob/dead/new_player/potential_alt_spawner = our_joiner
+		var/their_latejoin_pref = potential_alt_spawner?.client.prefs.read_preference(/datum/preference/choiced/latejoin_location)
+		if(their_latejoin_pref)
+			if(their_latejoin_pref == JOB_LATEJOINPREF_INTERLINK && length(SSjob.latejoin_interlink_trackers))
+				return pick(SSjob.latejoin_interlink_trackers)
+			if(their_latejoin_pref == JOB_LATEJOINPREF_CRYO)
+				return pick(SSjob.latejoin_cryo_trackers)
+	/// EFFIGY EDIT END - SPAWN PREFS ///
 	if(length(SSjob.latejoin_trackers))
 		return pick(SSjob.latejoin_trackers)
 	return SSjob.get_last_resort_spawn_points()

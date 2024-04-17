@@ -116,7 +116,7 @@
 	if(!can_open_with_hands)
 		return .
 
-	if(isaicamera(user) || issilicon(user))
+	if(isaicamera(user) || HAS_SILICON_ACCESS(user))
 		return .
 
 	if(isnull(held_item) && Adjacent(user))
@@ -239,7 +239,7 @@
 		var/obj/item/I = AM
 		if(!density || (I.w_class < WEIGHT_CLASS_NORMAL && !LAZYLEN(I.GetAccess())))
 			return
-		if(check_access(I))
+		if(requiresID() && check_access(I))
 			open()
 		else
 			do_animate("deny")
@@ -423,7 +423,7 @@
 		return FALSE
 	operating = TRUE
 	update_appearance() // EffigyEdit Add - Operating Appearance
-	use_power(active_power_usage)
+	use_energy(active_power_usage)
 	do_animate("opening")
 	set_opacity(0)
 	SLEEP_NOT_DEL(0.5 SECONDS)
