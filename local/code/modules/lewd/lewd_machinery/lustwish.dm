@@ -42,7 +42,7 @@
 				/obj/item/clothing/mask/leatherwhip = 4,
 				/obj/item/bdsm_candle = 4,
 				/obj/item/spanking_pad = 4,
-/obj/item/tickle_feather = 8,
+				/obj/item/tickle_feather = 8,
 
 
 			),
@@ -75,6 +75,9 @@
 				/obj/item/clothing/under/costume/maid = 5,
 				/obj/item/clothing/under/rank/civilian/janitor/maid = 5,
 
+				/obj/item/clothing/under/rank/prisoner/lustwish = 4,
+				/obj/item/clothing/under/rank/prisoner/skirt/lustwish = 4,
+
 				/obj/item/clothing/under/stripper_outfit = 5,
 				/obj/item/clothing/glasses/nice_goggles = 1, //easter egg, don't touch plz
 			),
@@ -101,6 +104,7 @@
 
 				//neck
 				/obj/item/key/collar = 48,
+				/obj/item/clothing/erp_leash = 8,
 				/obj/item/clothing/neck/kink_collar = 8,
 				/obj/item/clothing/neck/human_petcollar = 8,
 				/obj/item/clothing/neck/human_petcollar/choker = 8,
