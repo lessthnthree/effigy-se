@@ -106,6 +106,7 @@
 		"slime_scanner",
 		"solar_panel",
 		"solar_tracker",
+		"souppot",
 		"space_heater",
 		"spoon",
 		"status_display_frame",
@@ -357,6 +358,7 @@
 		"comp_get_column",
 		"comp_gps",
 		"comp_health",
+		"comp_health_state",
 		"comp_hear",
 		"comp_id_access_reader",
 		"comp_id_getter",
@@ -381,6 +383,7 @@
 		"comp_not",
 		"comp_ntnet_receive",
 		"comp_ntnet_send",
+		"comp_ntnet_send_list_literal",
 		"comp_pinpointer",
 		"comp_pressuresensor",
 		"comp_radio",
@@ -399,6 +402,7 @@
 		"comp_tempsensor",
 		"comp_textcase",
 		"comp_timepiece",
+		"comp_toggle",
 		"comp_tonumber",
 		"comp_tostring",
 		"comp_trigonometry",
@@ -1041,6 +1045,8 @@
 		"borg_upgrade_lavaproof",
 		"borg_upgrade_rped",
 		"borg_upgrade_hypermod",
+		"borg_upgrade_inducer",
+		"borg_upgrade_engineeringomnitool",
 		"advanced_materials", // EffigyEdit Add
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2000)
@@ -1057,7 +1063,7 @@
 		"borg_upgrade_piercinghypospray",
 		"borg_upgrade_pinpointer",
 		"borg_upgrade_surgicalprocessor",
-		"borg_upgrade_surgicaltools", // EffigyEdit Add
+		"borg_upgrade_surgicalomnitool",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2000)
 
@@ -1117,6 +1123,7 @@
 		"maintain_module",
 		"liveandletlive_module",
 		"reporter_module",
+		"yesman_module",
 		"hulkamania_module",
 		"peacekeeper_module",
 		"overlord_module",

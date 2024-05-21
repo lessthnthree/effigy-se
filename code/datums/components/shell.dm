@@ -25,7 +25,7 @@
 	COOLDOWN_DECLARE(power_used_cooldown)
 
 	/// The maximum power that the shell can use in a minute before entering overheating and destroying itself.
-	var/max_power_use_in_minute = 20000
+	var/max_power_use_in_minute = 20 * STANDARD_CELL_CHARGE
 
 /datum/component/shell/Initialize(unremovable_circuit_components, capacity, shell_flags, starting_circuit)
 	. = ..()
@@ -173,7 +173,7 @@
 
 	if(istype(item, /obj/item/inducer))
 		var/obj/item/inducer/inducer = item
-		INVOKE_ASYNC(inducer, TYPE_PROC_REF(/obj/item, attack_atom), attached_circuit, attacker, list())
+		INVOKE_ASYNC(inducer, TYPE_PROC_REF(/obj/item, attack_atom), attached_circuit || parent, attacker, list())
 		return COMPONENT_NO_AFTERATTACK
 
 	if(attached_circuit)

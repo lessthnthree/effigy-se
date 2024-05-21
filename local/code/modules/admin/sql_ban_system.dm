@@ -374,6 +374,7 @@
 				ROLE_MIND_TRANSFER,
 				ROLE_POSIBRAIN,
 				ROLE_SENTIENCE,
+				ROLE_EVENTVENUE_GUEST, // Effigy Add - Interlink, Event Venue
 			),
 			"Antagonist Positions" = list(
 				ROLE_ABDUCTOR,
@@ -820,7 +821,7 @@
 		return
 	var/kn = key_name(usr)
 	var/kna = key_name_admin(usr)
-	var/change_message = "[usr.client.key] unbanned [target] from [role] on [SQLtime()] during round #[GLOB.round_hex]<hr>"
+	var/change_message = "[usr.client.key] unbanned [target] from [role] on [ISOtime()] during round #[GLOB.round_hex]<hr>"
 	var/datum/db_query/query_unban = SSdbcore.NewQuery({"
 		UPDATE [format_table_name("ban")] SET
 			unbanned_datetime = NOW(),
@@ -865,7 +866,7 @@
 
 	var/kn = key_name(usr)
 	var/kna = key_name_admin(usr)
-	var/change_message = "[usr.client.key] re-activated ban of [target] from [role] on [SQLtime()] during round #[GLOB.round_hex]<hr>"
+	var/change_message = "[usr.client.key] re-activated ban of [target] from [role] on [ISOtime()] during round #[GLOB.round_hex]<hr>"
 	var/datum/db_query/query_reban = SSdbcore.NewQuery({"
 		UPDATE [format_table_name("ban")] SET
 			unbanned_datetime = NULL,

@@ -582,7 +582,7 @@
 	addiction_types = list(/datum/addiction/stimulants = 4) //1.6 per 2 seconds
 	inverse_chem = /datum/reagent/inverse/corazargh
 	inverse_chem_val = 0.4
-	metabolized_traits = list(TRAIT_BATON_RESISTANCE)
+	metabolized_traits = list(TRAIT_BATON_RESISTANCE, TRAIT_STIMULATED)
 
 /datum/reagent/medicine/ephedrine/on_mob_metabolize(mob/living/affected_mob)
 	. = ..()
@@ -1114,7 +1114,7 @@
 	. = ..()
 	for(var/effect in status_effects_to_clear)
 		affected_mob.remove_status_effect(effect)
-	affected_mob.reagents.remove_reagent(/datum/reagent/consumable/ethanol, 3 * REM * seconds_per_tick * normalise_creation_purity(), include_subtypes = TRUE)
+	affected_mob.reagents.remove_reagent(/datum/reagent/consumable/ethanol, 8 * REM * seconds_per_tick * normalise_creation_purity(), include_subtypes = TRUE)
 	if(affected_mob.adjustToxLoss(-0.2 * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype))
 		. = UPDATE_MOB_HEALTH
 	affected_mob.adjust_drunk_effect(-10 * REM * seconds_per_tick * normalise_creation_purity())
@@ -1136,7 +1136,7 @@
 	ph = 8.7
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED|REAGENT_NO_RANDOM_RECIPE
 	addiction_types = list(/datum/addiction/stimulants = 4) //0.8 per 2 seconds
-	metabolized_traits = list(TRAIT_BATON_RESISTANCE, TRAIT_ANALGESIA)
+	metabolized_traits = list(TRAIT_BATON_RESISTANCE, TRAIT_ANALGESIA, TRAIT_STIMULATED)
 
 /datum/reagent/medicine/stimulants/on_mob_metabolize(mob/living/affected_mob)
 	. = ..()
@@ -1337,6 +1337,9 @@
 
 	if (affected_mob.get_timed_status_effect_duration(/datum/status_effect/hallucination) >= 10 SECONDS)
 		affected_mob.adjust_hallucinations(-10 SECONDS * REM * seconds_per_tick)
+
+	if(affected_mob.getStaminaLoss() >= 100)
+		affected_mob.reagents.remove_reagent(type, 2 * REM * seconds_per_tick)
 
 	var/need_mob_update = FALSE
 	if(SPT_PROB(10, seconds_per_tick))
