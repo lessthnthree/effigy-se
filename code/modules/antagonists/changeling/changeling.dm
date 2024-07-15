@@ -14,6 +14,7 @@
 	can_assign_self_objectives = TRUE
 	default_custom_objective = "Consume the station's most valuable genomes."
 	hardcore_random_bonus = TRUE
+	stinger_sound = 'sound/ambience/antag/ling_alert.ogg'
 	/// Whether to give this changeling objectives or not
 	var/give_objectives = TRUE
 	/// Weather we assign objectives which compete with other lings
@@ -149,7 +150,6 @@
 	if(give_objectives)
 		forge_objectives()
 	owner.current.get_language_holder().omnitongue = TRUE
-	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ling_alert.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
 	return ..()
 
 /datum/antagonist/changeling/apply_innate_effects(mob/living/mob_override)
@@ -561,8 +561,8 @@
 	new_profile.socks = target.socks
 
 	// Hair and facial hair gradients, alongside their colours.
-	new_profile.grad_style = LAZYLISTDUPLICATE(target.grad_style)
-	new_profile.grad_color = LAZYLISTDUPLICATE(target.grad_color)
+	//new_profile.grad_style = LAZYLISTDUPLICATE(target.grad_style)
+	//new_profile.grad_color = LAZYLISTDUPLICATE(target.grad_color)
 
 	// EffigyEdit Add - Vocal Bloopers
 	new_profile.blooper_id = target.blooper_id
@@ -797,8 +797,6 @@
 	user.age = chosen_profile.age
 	user.physique = chosen_profile.physique
 	user.mind?.set_level(/datum/skill/athletics, chosen_profile.athletics_level, silent = TRUE)
-	user.grad_style = LAZYLISTDUPLICATE(chosen_profile.grad_style)
-	user.grad_color = LAZYLISTDUPLICATE(chosen_profile.grad_color)
 	user.voice = chosen_profile.voice
 	user.voice_filter = chosen_profile.voice_filter
 
@@ -960,10 +958,6 @@
 	var/athletics_level
 	/// The quirks of the profile source.
 	var/list/quirks = list()
-	/// The hair and facial hair gradient styles of the profile source.
-	var/list/grad_style = list("None", "None")
-	/// The hair and facial hair gradient colours of the profile source.
-	var/list/grad_color = list(null, null)
 	/// The TTS voice of the profile source
 	var/voice
 	/// The TTS filter of the profile filter
@@ -1005,8 +999,6 @@
 	new_profile.physique = physique
 	new_profile.athletics_level = athletics_level
 	new_profile.quirks = quirks.Copy()
-	new_profile.grad_style = LAZYLISTDUPLICATE(grad_style)
-	new_profile.grad_color = LAZYLISTDUPLICATE(grad_color)
 	new_profile.voice = voice
 	new_profile.voice_filter = voice_filter
 
@@ -1076,6 +1068,7 @@
 	total_chem_storage = 50
 
 /datum/antagonist/changeling/headslug/greet()
+	play_stinger()
 	to_chat(owner, span_boldannounce("You are a fresh changeling birthed from a headslug! \
 		You aren't as strong as a normal changeling, as you are newly born."))
 
@@ -1088,6 +1081,7 @@
 	return finish_preview_icon(final_icon)
 
 /datum/antagonist/changeling/space/greet()
+	play_stinger()
 	to_chat(src, span_changeling("Our mind stirs to life, from the depths of an endless slumber..."))
 
 /datum/outfit/changeling

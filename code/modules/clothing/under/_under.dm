@@ -6,6 +6,7 @@
 	righthand_file = 'icons/mob/inhands/clothing/suits_righthand.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	slot_flags = ITEM_SLOT_ICLOTHING
+	interaction_flags_click = NEED_DEXTERITY
 	armor_type = /datum/armor/clothing_under
 	equip_sound = 'sound/items/equip/jumpsuit_equip.ogg'
 	drop_sound = 'sound/items/handling/cloth_drop.ogg'
@@ -141,12 +142,13 @@
 
 	if(severity <= EMP_HEAVY)
 		has_sensor = BROKEN_SENSORS
+		sensor_mode = SENSOR_LIVING // EffigyEdit Add - Custom Sensor UI
 		if(ismob(loc))
 			var/mob/M = loc
 			to_chat(M,span_warning("[src]'s sensors short out!"))
 
 	else
-		sensor_mode = pick(SENSOR_OFF, SENSOR_OFF, SENSOR_OFF, SENSOR_LIVING, SENSOR_LIVING, SENSOR_VITALS, SENSOR_VITALS, SENSOR_COORDS)
+		sensor_mode = clamp(sensor_mode + pick(-1,1), SENSOR_OFF, SENSOR_COORDS) // EffigyEdit Change - Custom Sensor UI - Original: sensor_mode = pick(SENSOR_OFF, SENSOR_OFF, SENSOR_OFF, SENSOR_LIVING, SENSOR_LIVING, SENSOR_VITALS, SENSOR_VITALS, SENSOR_COORDS)
 		if(ismob(loc))
 			var/mob/M = loc
 			to_chat(M,span_warning("The sensors on the [src] change rapidly!"))
@@ -183,7 +185,7 @@
 
 /mob/living/carbon/human/proc/update_sensor_list()
 	var/obj/item/clothing/under/U = w_uniform
-	if(istype(U) && U.has_sensor > NO_SENSORS && U.sensor_mode)
+	if(istype(U) && U.has_sensor != NO_SENSORS && U.sensor_mode) // EffigyEdit Change - Custom Sensor UI - Original: if(istype(U) && U.has_sensor > NO_SENSORS && U.sensor_mode)
 		GLOB.suit_sensors_list |= src
 	else
 		GLOB.suit_sensors_list -= src
@@ -342,15 +344,13 @@
 		if(H.w_uniform == src)
 			H.update_suit_sensors()
 
-/obj/item/clothing/under/CtrlClick(mob/user)
-	. = ..()
-	if(.)
-		return
+/obj/item/clothing/under/item_ctrl_click(mob/user)
 	if(!can_toggle_sensors(user))
-		return
+		return CLICK_ACTION_BLOCKING
 
 	sensor_mode = SENSOR_COORDS
 	balloon_alert(user, "set to tracking")
+	return CLICK_ACTION_SUCCESS
 
 /// Checks if the toggler is allowed to toggle suit sensors currently
 /obj/item/clothing/under/proc/can_toggle_sensors(mob/toggler)
@@ -382,17 +382,10 @@
 	rolldown()
 	return CLICK_ACTION_SUCCESS
 
-/obj/item/clothing/under/alt_click_secondary(mob/user)
-	. = ..()
-	if(.)
-		return
-
+/obj/item/clothing/under/click_alt_secondary(mob/user)
 	if(!LAZYLEN(attached_accessories))
 		balloon_alert(user, "no accessories to remove!")
 		return
-	if(!user.can_perform_action(src, NEED_DEXTERITY))
-		return
-
 	pop_accessory(user)
 
 /obj/item/clothing/under/verb/jumpsuit_adjust()

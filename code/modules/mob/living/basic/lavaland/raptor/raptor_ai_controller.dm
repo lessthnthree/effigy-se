@@ -3,15 +3,15 @@
 /datum/ai_controller/basic_controller/raptor
 	blackboard = list(
 		BB_INTERACTIONS_WITH_OWNER = list(
-			"Pecks",
-			"Nuzzles",
-			"Wags tail against",
-			"Playfully leans against"
+			"pecks",
+			"nuzzles",
+			"wags their tail against",
+			"playfully leans against"
 		),
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic/raptor,
 		BB_PET_TARGETING_STRATEGY = /datum/targeting_strategy/basic/raptor,
-		BB_BABIES_PARTNER_TYPES = list(/mob/living/basic/mining/raptor),
-		BB_BABIES_CHILD_TYPES = list(/mob/living/basic/mining/raptor/baby_raptor),
+		BB_BABIES_PARTNER_TYPES = list(/mob/living/basic/raptor),
+		BB_BABIES_CHILD_TYPES = list(/mob/living/basic/raptor/baby_raptor),
 		BB_MAX_CHILDREN = 5,
 	)
 
@@ -53,8 +53,8 @@
 /datum/ai_controller/basic_controller/baby_raptor
 	blackboard = list(
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic/raptor,
-		BB_FIND_MOM_TYPES = list(/mob/living/basic/mining/raptor),
-		BB_IGNORE_MOM_TYPES = list(/mob/living/basic/mining/raptor/baby_raptor),
+		BB_FIND_MOM_TYPES = list(/mob/living/basic/raptor),
+		BB_IGNORE_MOM_TYPES = list(/mob/living/basic/raptor/baby_raptor),
 	)
 
 	ai_movement = /datum/ai_movement/basic_avoidance

@@ -155,7 +155,13 @@
 ///Text we display when we befriend someone
 #define BB_FRIENDLY_MESSAGE "friendly_message"
 
+///our fishing target
+#define BB_FISHING_TARGET "fishing_target"
+
 // Keys used by one and only one behavior
 // Used to hold state without making bigass lists
 /// For /datum/ai_behavior/find_potential_targets, what if any field are we using currently
 #define BB_FIND_TARGETS_FIELD(type) "bb_find_targets_field_[type]"
+
+///mothroach next meal key!
+#define BB_MOTHROACH_NEXT_EAT "mothroach_next_eat"

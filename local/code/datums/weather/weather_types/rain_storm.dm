@@ -24,6 +24,10 @@
 	glow_overlay_icon = 'local/icons/effects/glow_weather.dmi'
 	weather_overlay_icon = 'local/icons/effects/weather_effects.dmi'
 
+/datum/weather/rain_storm/weather_act(mob/living/living)
+	living.extinguish_mob()
+	living.adjust_wet_stacks(2) // Gets out a lil faster than being in a lake or something.
+
 // this sucks. anyways, only alert if you're outside
 /datum/weather/rain_storm/can_get_alert(mob/player)
 	if(!..())
@@ -33,3 +37,10 @@
 		return TRUE
 
 	return FALSE
+
+// This sucks HARDER but not as any fault of it's own.
+/datum/weather/rain_storm/forever_storm
+	telegraph_duration = 0
+	perpetual = TRUE
+
+	probability = 0
