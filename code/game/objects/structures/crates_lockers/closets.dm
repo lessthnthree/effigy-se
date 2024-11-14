@@ -182,7 +182,7 @@ GLOBAL_LIST_EMPTY(roundstart_station_closets)
 
 //USE THIS TO FILL IT, NOT INITIALIZE OR NEW
 /obj/structure/closet/proc/PopulateContents()
-	SEND_SIGNAL(src, COMSIG_CLOSET_POPULATE_CONTENTS)
+	return
 
 /// Populate the closet with stuff that needs to be added before it is opened.
 /// This is useful for things like traitor objectives.
@@ -452,6 +452,7 @@ GLOBAL_LIST_EMPTY(roundstart_station_closets)
 	if (!contents_initialized)
 		contents_initialized = TRUE
 		PopulateContents()
+		SEND_SIGNAL(src, COMSIG_CLOSET_CONTENTS_INITIALIZED)
 
 	var/atom/L = drop_location()
 	for(var/atom/movable/AM in src)
@@ -914,6 +915,8 @@ GLOBAL_LIST_EMPTY(roundstart_station_closets)
 /obj/structure/closet/mouse_drop_receive(atom/movable/O, mob/living/user, params)
 	if(!istype(O) || O.anchored || istype(O, /atom/movable/screen))
 		return
+	if(!istype(user) || user.incapacitated || user.body_position == LYING_DOWN)
+		return
 	if(user == O) //try to climb onto it
 		return ..()
 	if(!opened)
@@ -1012,7 +1015,7 @@ GLOBAL_LIST_EMPTY(roundstart_station_closets)
 		return FALSE
 	return TRUE
 
-/obj/structure/closet/container_resist_act(mob/living/user)
+/obj/structure/closet/container_resist_act(mob/living/user, loc_required = TRUE)
 	if(isstructure(loc))
 		relay_container_resist_act(user, loc)
 	if(opened)
@@ -1037,7 +1040,7 @@ GLOBAL_LIST_EMPTY(roundstart_station_closets)
 	addtimer(CALLBACK(src, PROC_REF(check_if_shake)), 1 SECONDS)
 
 	if(do_after(user,(breakout_time), target = src))
-		if(!user || user.stat != CONSCIOUS || user.loc != src || opened || (!locked && !welded) )
+		if(!user || user.stat != CONSCIOUS || (loc_required && (user.loc != src)) || opened || (!locked && !welded) )
 			return
 		//we check after a while whether there is a point of resisting anymore and whether the user is capable of resisting
 		user.visible_message(span_danger("[user] successfully broke out of [src]!"),
@@ -1192,6 +1195,8 @@ GLOBAL_LIST_EMPTY(roundstart_station_closets)
 	if(!toggle())
 		return
 	if(was_opened)
+		if (!target.Move(get_turf(src), get_dir(target, src)))
+			return
 		target.forceMove(src)
 	else
 		target.Knockdown(SHOVE_KNOCKDOWN_SOLID)

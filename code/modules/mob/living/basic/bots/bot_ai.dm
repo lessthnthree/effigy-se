@@ -55,7 +55,15 @@
 	var/mob/living/basic/bot/bot_pawn = pawn
 	bot_pawn.bot_reset()
 
-/datum/ai_controller/basic_controller/bot/able_to_run()
+/datum/ai_controller/basic_controller/bot/setup_able_to_run()
+	. = ..()
+	RegisterSignal(pawn, COMSIG_BOT_MODE_FLAGS_SET, PROC_REF(update_able_to_run))
+
+/datum/ai_controller/basic_controller/bot/clear_able_to_run()
+	UnregisterSignal(pawn, list(COMSIG_BOT_MODE_FLAGS_SET))
+	return ..()
+
+/datum/ai_controller/basic_controller/bot/get_able_to_run()
 	var/mob/living/basic/bot/bot_pawn = pawn
 	if(!(bot_pawn.bot_mode_flags & BOT_MODE_ON))
 		return FALSE
@@ -276,3 +284,17 @@
 
 /datum/ai_behavior/bot_search/proc/valid_target(datum/ai_controller/basic_controller/bot/controller, atom/my_target)
 	return TRUE
+
+///behavior to make our bot talk
+/datum/ai_behavior/bot_speech
+	action_cooldown = 5 SECONDS
+	behavior_flags = AI_BEHAVIOR_CAN_PLAN_DURING_EXECUTION
+
+/datum/ai_behavior/bot_speech/perform(seconds_per_tick, datum/ai_controller/controller, list/list_to_pick_from, announce_key)
+	var/datum/action/cooldown/bot_announcement/announcement = controller.blackboard[announce_key]
+
+	if(isnull(announcement) || !length(list_to_pick_from))
+		return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_FAILED
+
+	announcement.announce(pick(list_to_pick_from))
+	return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_SUCCEEDED

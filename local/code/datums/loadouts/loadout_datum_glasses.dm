@@ -23,10 +23,8 @@ GLOBAL_LIST_INIT(loadout_glasses, generate_loadout_items(/datum/loadout_item/gla
 
 /datum/loadout_item/glasses/post_equip_item(datum/preferences/preference_source, mob/living/carbon/human/equipper)
 	var/obj/item/clothing/glasses/equipped_glasses = locate(item_path) in equipper.get_equipped_items()
-	if (!equipped_glasses)
+	if(!equipped_glasses)
 		return
-	if(equipped_glasses.glass_colour_type)
-		equipper.update_glasses_color(equipped_glasses, TRUE)
 	if(equipped_glasses.tint)
 		equipper.update_tint()
 	if(equipped_glasses.vision_flags \
@@ -34,14 +32,15 @@ GLOBAL_LIST_INIT(loadout_glasses, generate_loadout_items(/datum/loadout_item/gla
 		|| equipped_glasses.invis_view \
 		|| !isnull(equipped_glasses.color_cutoffs))
 		equipper.update_sight()
+
 /*
-*	PRESCRIPTION GLASSES
-*/
+ *	PRESCRIPTION GLASSES
+ */
 
 /datum/loadout_item/glasses/prescription_glasses
 	name = "Glasses"
 	item_path = /obj/item/clothing/glasses/regular
-	additional_tooltip_contents = list("PRESCRIPTION - This item functions with the 'nearsighted' quirk.")
+	additional_tooltip_contents = list(TOOLTIP_PRESCRIPTION)
 
 /datum/loadout_item/glasses/prescription_glasses/circle_glasses
 	name = "Circle Glasses"
@@ -64,8 +63,8 @@ GLOBAL_LIST_INIT(loadout_glasses, generate_loadout_items(/datum/loadout_item/gla
 	item_path = /obj/item/clothing/glasses/regular/betterunshit
 
 /*
-*	COSMETIC GLASSES
-*/
+ *	COSMETIC GLASSES
+ */
 
 /datum/loadout_item/glasses/cold_glasses
 	name = "Cold Glasses"
@@ -91,9 +90,14 @@ GLOBAL_LIST_INIT(loadout_glasses, generate_loadout_items(/datum/loadout_item/gla
 	name = "Red Glasses"
 	item_path = /obj/item/clothing/glasses/red
 
+/datum/loadout_item/glasses/kim_glasses
+	name = "Diamond-Shaped Glasses" // get this & ur a real one
+	item_path = /obj/item/clothing/glasses/kim
+	additional_tooltip_contents = list(TOOLTIP_PRESCRIPTION)
+
 /*
-*	MISC
-*/
+ *	MISC
+ */
 
 /datum/loadout_item/glasses/eyepatch
 	name = "Eyepatch"
@@ -140,8 +144,8 @@ GLOBAL_LIST_INIT(loadout_glasses, generate_loadout_items(/datum/loadout_item/gla
 	item_path = /obj/item/clothing/glasses/hud/ar/projector
 
 /*
-*	JOB-LOCKED
-*/
+ *	JOB-LOCKED
+ */
 
 /datum/loadout_item/glasses/medicpatch
 	name = "Medical Eyepatch HUD"
@@ -269,8 +273,8 @@ GLOBAL_LIST_INIT(loadout_glasses, generate_loadout_items(/datum/loadout_item/gla
 	restricted_roles = list(JOB_SCIENTIST, JOB_ROBOTICIST, JOB_GENETICIST, JOB_RESEARCH_DIRECTOR, JOB_CHEMIST)
 
 /*
-*	FAMILIES
-*/
+ *	FAMILIES
+ */
 
 /datum/loadout_item/glasses/osi
 	name = "OSI Glasses"

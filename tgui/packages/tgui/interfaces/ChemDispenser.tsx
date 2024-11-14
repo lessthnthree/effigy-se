@@ -1,6 +1,6 @@
-import { BooleanLike } from 'common/react';
-import { toTitleCase } from 'common/string';
 import { useState } from 'react';
+import { BooleanLike } from 'tgui-core/react';
+import { toTitleCase } from 'tgui-core/string';
 
 import { useBackend } from '../backend';
 import {
@@ -30,8 +30,8 @@ type Data = {
   amount: number;
   energy: number;
   maxEnergy: number;
-  displayedEnergy: string;
-  displayedMaxEnergy: string;
+  displayedUnits: string;
+  displayedMaxUnits: string;
   chemicals: DispensableReagent[];
   recipes: string[];
   recordingRecipe: string[];
@@ -55,7 +55,7 @@ export const ChemDispenser = (props) => {
     }));
 
   return (
-    <Window width={655} height={730}>
+    <Window width={565} height={620}>
       <Window.Content scrollable>
         <Section
           title="Status"
@@ -93,7 +93,10 @@ export const ChemDispenser = (props) => {
           <LabeledList>
             <LabeledList.Item label="Energy">
               <ProgressBar value={data.energy / data.maxEnergy}>
-                {data.displayedEnergy + ' / ' + data.displayedMaxEnergy}
+                {data.displayedUnits +
+                  ' / ' +
+                  data.displayedMaxUnits +
+                  ' units'}
               </ProgressBar>
             </LabeledList.Item>
           </LabeledList>
@@ -161,11 +164,6 @@ export const ChemDispenser = (props) => {
             {recipes.length === 0 && <Box color="light-gray">No recipes.</Box>}
           </Box>
         </Section>
-        <Button // EffigyEdit Add
-          icon="pen"
-          content="Custom Amount"
-          onClick={() => act('custom_amount')}
-        />
         <Section
           title="Dispense"
           buttons={beakerTransferAmounts.map((amount) => (

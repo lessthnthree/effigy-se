@@ -138,12 +138,12 @@
 	return 0
 
 /obj/item/proc/get_volume_by_throwforce_and_or_w_class()
-		if(throwforce && w_class)
-				return clamp((throwforce + w_class) * 5, 30, 100)// Add the item's throwforce to its weight class and multiply by 5, then clamp the value between 30 and 100
-		else if(w_class)
-				return clamp(w_class * 8, 20, 100) // Multiply the item's weight class by 8, then clamp the value between 20 and 100
-		else
-				return 0
+	if(throwforce && w_class)
+		return clamp((throwforce + w_class) * 5, 30, 100)// Add the item's throwforce to its weight class and multiply by 5, then clamp the value between 30 and 100
+	else if(w_class)
+		return clamp(w_class * 8, 20, 100) // Multiply the item's weight class by 8, then clamp the value between 20 and 100
+	else
+		return 0
 
 /mob/living/proc/set_combat_mode(new_mode, silent = TRUE)
 	if(combat_mode == new_mode)
@@ -270,6 +270,7 @@
 		return FALSE
 
 	grippedby(user)
+	update_incapacitated()
 
 //proc to upgrade a simple pull into a more aggressive grab.
 /mob/living/proc/grippedby(mob/living/user, instant = FALSE)
@@ -413,7 +414,7 @@
 
 	if(!user.get_bodypart(BODY_ZONE_HEAD))
 		return FALSE
-	if(user.is_muzzled() || user.is_mouth_covered(ITEM_SLOT_MASK))
+	if(user.is_mouth_covered(ITEM_SLOT_MASK))
 		to_chat(user, span_warning("You can't bite with your mouth covered!"))
 		return FALSE
 
@@ -661,7 +662,7 @@
 		playsound(target, 'sound/effects/glassbash.ogg', 50, TRUE, -1)
 	else
 		do_attack_animation(target, ATTACK_EFFECT_DISARM)
-		playsound(target, 'sound/weapons/thudswoosh.ogg', 50, TRUE, -1)
+		playsound(target, 'sound/weapons/shove.ogg', 50, TRUE, -1)
 	if (ishuman(target) && isnull(weapon))
 		var/mob/living/carbon/human/human_target = target
 		human_target.w_uniform?.add_fingerprint(src)

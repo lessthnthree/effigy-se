@@ -43,6 +43,10 @@ GLOBAL_LIST_INIT(loadout_inhand_items, generate_loadout_items(/datum/loadout_ite
 	name = "Skub"
 	item_path = /obj/item/skub
 
+/datum/loadout_item/inhand/towel
+	name = "Towel"
+	item_path = /obj/item/towel
+
 /datum/loadout_item/inhand/skateboard
 	name = "Skateboard"
 	item_path = /obj/item/melee/skateboard
@@ -65,7 +69,7 @@ GLOBAL_LIST_INIT(loadout_inhand_items, generate_loadout_items(/datum/loadout_ite
 
 /datum/loadout_item/inhand/smokingpipe
 	name = "Smoking Pipe"
-	item_path = /obj/item/clothing/mask/cigarette/pipe
+	item_path = /obj/item/cigarette/pipe
 
 /datum/loadout_item/inhand/catstamp
 	name = "Official Cat Stamp"

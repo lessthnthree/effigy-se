@@ -38,6 +38,12 @@
 	if(faction)
 		faction = string_list(faction)
 
+/obj/effect/mob_spawn/Destroy()
+	spawned_mob_ref = null
+	if(istype(outfit))
+		QDEL_NULL(outfit)
+	return ..()
+
 /// Creates whatever mob the spawner makes. Return FALSE if we want to exit from here without doing that, returning NULL will be logged to admins.
 /obj/effect/mob_spawn/proc/create(mob/mob_possessor, newname, is_pref_loaded) //EFFIGY CHANGE START - Loading Preferences in Ghost roles - Adds is_pref_loaded as an argument
 	var/mob/living/spawned_mob = new mob_type(get_turf(src)) //living mobs only
@@ -62,26 +68,19 @@
 		spawned_human.underwear = "Nude"
 		spawned_human.undershirt = "Nude"
 		spawned_human.socks = "Nude"
+		//randomize_human_normie(spawned_human) // EFFIGY EDIT REMOVAL - Puts this behind if(random_appearance) - see below
+		// EFFIGY EDIT ADDITION START
+		if(random_appearance)
+			randomize_human_normie(spawned_human)
+		// EFFIGY EDIT ADDITION END
 		if(hairstyle)
-			spawned_human.hairstyle = hairstyle
-		else
-			spawned_human.hairstyle = random_hairstyle(spawned_human.gender)
+			spawned_human.set_hairstyle(hairstyle, update = FALSE)
 		if(facial_hairstyle)
-			spawned_human.facial_hairstyle = facial_hairstyle
-		else
-			spawned_human.facial_hairstyle = random_facial_hairstyle(spawned_human.gender)
+			spawned_human.set_facial_hairstyle(facial_hairstyle, update = FALSE)
 		if(haircolor)
-			spawned_human.hair_color = haircolor
-		else
-			spawned_human.hair_color = "#[random_color()]"
+			spawned_human.set_haircolor(haircolor, update = FALSE)
 		if(facial_haircolor)
-			spawned_human.facial_hair_color = facial_haircolor
-		else
-			spawned_human.facial_hair_color = "#[random_color()]"
-		if(skin_tone)
-			spawned_human.skin_tone = skin_tone
-		else
-			spawned_human.skin_tone = pick(GLOB.skin_tones)
+			spawned_human.set_facial_haircolor(facial_haircolor, update = FALSE)
 		spawned_human.update_body(is_creating = TRUE)
 
 /obj/effect/mob_spawn/proc/name_mob(mob/living/spawned_mob, forced_name)
@@ -151,7 +150,7 @@
 	SSpoints_of_interest.make_point_of_interest(src)
 	LAZYADD(GLOB.mob_spawners[name], src)
 
-/obj/effect/mob_spawn/Destroy()
+/obj/effect/mob_spawn/ghost_role/Destroy()
 	var/list/spawners = GLOB.mob_spawners[name]
 	LAZYREMOVE(spawners, src)
 	if(!LAZYLEN(spawners))
@@ -289,6 +288,7 @@
 
 ///these mob spawn subtypes trigger immediately (New or Initialize) and are not player controlled... since they're dead, you know?
 /obj/effect/mob_spawn/corpse
+	density = FALSE //these are pretty much abstract objects that leave a corpse in their place.
 	///when this mob spawn should auto trigger.
 	var/spawn_when = CORPSE_INSTANT
 
